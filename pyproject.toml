@@ -1,0 +1,15 @@
+[project]
+name = "w7-case"
+version = "1.0.0"
+description = "Lecture 7 – decision table testing: pytest and Selenium on the SklepTO calculator"
+requires-python = ">=3.10"
+dependencies = ["selenium==4.49.0", "pytest==9.1.1", "pytest-html==4.2.0", "allpairspy==2.5.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]          # only tests/ is collected (not examples/)
+pythonpath = ["src"]           # `import webtests`, `import rules` work without installing
+addopts = "-ra"                # short summary of failed/skipped/xfailed tests
+markers = [
+    "ui: test that drives the browser (Selenium); skip with -m \"not ui\"",
+]
+xfail_strict = true            # an unexpected pass of xfail = failure
